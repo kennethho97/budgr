@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budgr</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Lucida Sans Typewriter", "Lucida Console", "monaco", "Bitstream Vera Sans Mono", monospace;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Repeating BUDGR Banner -->
+    <div class="w-full overflow-hidden border-t border-b border-white/20 py-2">
+        <div id="budgr-banner" class="text-yellow-400 font-bold text-md text-center whitespace-nowrap"></div>
+    </div>
+  
+    <!-- Page container -->
+    <div class="max-w-4xl mx-auto px-6 py-24 text-left">
+
+        <!-- H1 -->
+        <h1 class="text-4xl sm:text-5xl font-bold text-black">
+            Personal budgeting and financial reporting tool.
+        </h1>
+
+        <!-- H2 -->
+        <p class="mt-6 text-lg sm:text-xl text-gray-600 font-normal max-w-3xl">
+        Budgr brings transaction data from all my financial accounts into one place using Plaid, giving me a clean, unified ledger. It helps me build budgets based on actual spending habits and sends me daily email updates on how I'm tracking against goals.
+        </p>
+
+        <!-- Policy Cards -->
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+            <!-- Terms of Service Card -->
+            <div class="relative bg-white rounded-2xl p-2 border border-gray-600 shadow-sm">
+                <div class="absolute inset-0 rounded-2xl border border-gray-600 pointer-events-none"></div>
+                <div class="relative bg-white rounded-xl p-6 border border-gray-600">
+                    <div class="absolute inset-0 rounded-xl border border-gray-600 pointer-events-none"></div>
+                    <h3 class="text-xl font-semibold text-gray-900">Terms of Service</h3>
+                    <div class="my-4 border-t border-gray-600"></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Budgr is an app developed for my personal use. I'll update the terms of service if I decide to scale Budgr to other users.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Privacy Policy Card -->
+            <div class="relative bg-white rounded-2xl p-2 border border-gray-600 shadow-sm">
+                <div class="absolute inset-0 rounded-2xl border border-gray-600 pointer-events-none"></div>
+                <div class="relative bg-white rounded-xl p-6 border border-gray-600">
+                    <div class="absolute inset-0 rounded-xl border border-gray-600 pointer-events-none"></div>
+                    <h3 class="text-xl font-semibold text-gray-900">Privacy Policy</h3>
+                    <div class="my-4 border-t border-gray-600"></div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        I developed Budgr to reduce third party access to my financial data. I'll keep my data private and safe. I don't intend to sell or share my data.
+                    </p>
+                </div>
+            </div>
+    
+            
+        </div>
+    
+    </div>
+
+    <script>
+        function fillBanner() {
+          const banner = document.getElementById("budgr-banner");
+          const label = " BUDGR ·";
+          const containerWidth = window.innerWidth;
+          const charWidth = 9; // Approximate average width in pixels (adjust as needed)
+          const repeatCount = Math.ceil(containerWidth / charWidth);
+          banner.textContent = label.repeat(repeatCount);
+        }
+      
+        window.addEventListener("load", fillBanner);
+        window.addEventListener("resize", fillBanner);
+    </script>
+      
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+# Ignore Python virtual environments
+venv/
+
+# Bytecode files
+__pycache__/
+*.pyc
+
+# VS Code settings (optional)
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# Env for secrets 
+.env
+

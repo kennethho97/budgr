@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plaid Link Integration</title>
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+</head>
+<body>
+  <h1>Connect Your Bank</h1>
+  <button id="link-button">Launch Plaid Link</button>
+
+  <script>
+    async function launchPlaidLink() {
+      const response = await fetch('/api/create_link_token');
+      const data = await response.json();
+
+      const handler = Plaid.create({
+        token: data.link_token,
+        onSuccess: function(public_token, metadata) {
+          alert('Public Token: ' + public_token);
+          // TODO: Send this public_token to your backend to exchange for access_token
+        },
+        onExit: function(err, metadata) {
+          console.log('User exited:', err, metadata);
+        }
+      });
+
+      handler.open();
+    }
+
+    document.getElementById('link-button').addEventListener('click', launchPlaidLink);
+  </script>
+</body>
+</html>

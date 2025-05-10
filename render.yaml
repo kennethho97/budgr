@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: budgr
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PLAID_CLIENT_ID
+        fromEnv: PLAID_CLIENT_ID
+      - key: PLAID_SECRET
+        fromEnv: PLAID_SECRET
+      - key: PLAID_ENV
+        fromEnv: PLAID_ENV
