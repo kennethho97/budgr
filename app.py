@@ -72,26 +72,6 @@ def create_link_token():
             }
         }), 500
 
-# Endpoint: List available institutions (to confirm access level)
-@app.route('/api/list_institutions')
-def list_institutions():
-    try:
-        request = InstitutionsGetRequest(
-            country_codes=[CountryCode("US")],
-            count=10,
-            offset=0
-        )
-        response = client.institutions_get(request)
-        institutions = [{"name": inst.name, "id": inst.institution_id} for inst in response.institutions]
-        return jsonify(institutions)
-    except ApiException as e:
-        return jsonify({
-            "error": {
-                "status_code": e.status,
-                "message": e.body,
-                "reason": e.reason
-            }
-        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
