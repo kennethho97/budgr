@@ -1,16 +1,22 @@
-# Ignore Python virtual environments
+# Ignore Python virtual environment
 venv/
 
-# Bytecode files
+# Ignore Python cache files
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# VS Code settings (optional)
-.vscode/
-
-# Mac system files
-.DS_Store
-
-# Env for secrets 
+# Ignore environment variable file
 .env
+
+# Ignore OS or editor-specific files
+.DS_Store
+*.swp
+
+# Ignore local logs or test output
+*.log
+
+# Ignore Flask debug data
+instance/
 
